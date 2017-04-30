@@ -2,7 +2,7 @@
 
 The Octa Grid is specially designed to reduce heavy work load on creating crud application. This is written in typescript  and will give you fully automated crud functionality with any server side language. By default it uses bootstrap forms but you can also create own forms(eg,materialcss) and inputs.
  
-see the [Demo](http://octagriddemo.github.io/) here.
+see the [Demo](https://silentturtle.github.io/octagriddemo.github.io/) here.
 #Note
 (Still in Development though you can hit try :))
 
