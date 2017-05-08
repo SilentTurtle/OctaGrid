@@ -3,6 +3,6 @@
         "sourceMap": true
     },
     "files": [
-        "octagrid/gridapp.ts"
+        "myapp/trainingapp.ts"
     ]
 }
