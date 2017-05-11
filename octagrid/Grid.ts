@@ -4,12 +4,13 @@ import { Toster } from "./Toaster";
 import {FormFiller} from './FormFiller';
 export class OctaGrid {
     default = {
+        renderAt:'',        
         enableForm: false,
         showAddNewButton: false,
         showeditButton: true,
         showdeleteButton: true,
         enableActionBar: true,
-        fields: [{ name: "Account", title: '', type: 'text', align: '' }],
+        fields: [],
         hideColumns: ['isDeleted'],
         baseUrl: '/api/v1/crud',
         searchBox: '.searchBox',
@@ -42,7 +43,6 @@ export class OctaGrid {
             onpaginate: null
         },        
         metadata: {
-
         },
         containers: {},
         formBuilder:{},
@@ -61,18 +61,18 @@ export class OctaGrid {
     }
 
     ajaxCall(url: string, param, successFx, error) {
-        // $.ajax({
-        //     type: "POST",
-        //     contentType: "application/json; charset=utf-8",
-        //     async: false,
-        //     url: this.config.baseUrl + this.config.model + "/" + url,
-        //     // url: "list.json",
-        //     data: JSON.stringify(param),
-        //     dataType: "json",
-        //     success: successFx,
-        //     error: error
-        // });
-        $.getJSON("list.json",successFx);
+        $.ajax({
+            type: "POST",
+            contentType: "application/json; charset=utf-8",
+            async: false,
+            url: this.config.baseUrl + this.config.model + "/" + url,
+            // url: "list.json",
+            data: JSON.stringify(param),
+            dataType: "json",
+            success: successFx,
+            error: error
+        });
+        //$.getJSON("list.json",successFx);
     }
 
 
@@ -339,7 +339,6 @@ export class OctaGrid {
                     commands += "<a command='delete' class='command' href='javascript:void(0);'><i class='fa fa-trash'></i></a>";
                 }
             } else {
-
                 commands += "<a command='" + item.command + "' class='" + item.className + "' href='javascript:void(0);'><i class='" + item.icon + "'></i></a>";
             }
             //text: 'edit',
@@ -353,35 +352,9 @@ export class OctaGrid {
     };
 
     renderHeader() {
-        var header = [];
-
-        //for (var i = 0; i < this.displayFields.length; i++) {
-        //    var added = false;
-        //    for (var z = 0; z < this.config.show.length; z++) {
-        //        if (this.displayFields[i].toLowerCase() == this.config.show[z].toLowerCase()) {
-        //            header.push(this.config.show[z]);
-        //            added = true;
-        //            break;
-        //        }
-        //    }
-        //    if (!added) {
-        //        header.push(this.displayFields[i]);
-        //    }
-        //}
+        var header = [];        
         var thead = "<thead>";
-        for (var i = 0; i < this.displayFields.length; i++) {
-            ////if customized else as it is
-            //if (this.displayFields[i].metadata.grid_header_title != undefined) {
-
-            //    if (this.displayFields[i].metadata.grid_header_type != undefined) {
-            //        var headertype = this.displayFields[i].metadata.grid_header_type;
-
-            //    } else {
-            //        thead += "<td>" + this.displayFields[i].metadata.grid_header_title + "</td>";
-            //    }
-            //} else {
-            //    thead += "<td>" + this.displayFields[i].name + "</td>";
-            //}
+        for (var i = 0; i < this.displayFields.length; i++) {         
             thead += this.renderHeaderColumn(this.displayFields[i]);
         }
         if (this.config.showAction) {
@@ -588,9 +561,6 @@ export class OctaGrid {
             var row = $(atag).parents("tr:eq(0)").data('item');
             var model = this.createFormDataReady.call(this, row);
             //console.log(model);
-            //console.log(this.containers)
-
-            //$("form[name=" + this.config.formBuilder.formId + "]").autofill(model);
             var formdata=new FormFiller();
             formdata.fill(this.config.formBuilder.formId,model);
             this.config.formBuilder.config.headerTitle.text("edit " + this.config.model);

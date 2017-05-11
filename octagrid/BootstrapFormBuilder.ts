@@ -123,9 +123,7 @@ export class BootstrapFormBuilder extends FormBuilder {
             var intputdata = inputmedadata.data ? inputmedadata.data : "";//data for select or rbl
 
             if (primaryKey == label) {
-                //console.log('primary')
-                //type, label, name, value, validation, className, selectedVal,isprimary
-                // formfields += this.vforminputmaker("hidden", label, inputname, 0, "", "", "", 1);
+                //console.log('primary')              
                 var hiddenInput = this.inputBuilder.create("hidden", {
                     placeholder: '',
                     name: inputname,
@@ -136,11 +134,7 @@ export class BootstrapFormBuilder extends FormBuilder {
                 formfields += hiddenInput.elem[0].outerHTML;
                 continue;
             }
-
-            //     var label=ffields[i].toLowerCase();
-            //     var inputname = fid + "-" + label;
-            //if (!$.isEmptyObject(inputmedadata.rules))
-            //    validationrules[inputname] = inputmedadata.rules;
+          
             if (this.config.makeColumn == 1) {
                 if (inputmedadata.input == "hidden")
                     continue;
@@ -157,18 +151,9 @@ export class BootstrapFormBuilder extends FormBuilder {
                 });
                 var content = inputlbl.elem[0].outerHTML + input.elem[0].outerHTML;
                 var output = this.inputWrapper.inputWrapper(true, content);
-                this.formElements.Register(input);
-                //var input = this.vforminputmaker(inputmedadata.input, extendedlabel, inputname, intputdata, "");
-                // var input = this.vforminputmaker("text", "heloo", "value", "required");
-                //console.log(input)
-                // forms.container.append(input);
+                this.formElements.Register(input);             
                 formfields += output;
-            } else {
-                // var input = this.inputBuilder.create(type, options);
-                // this.formElements.Register(input);
-                // var input = this.vforminputmaker(inputmedadata.input, extendedlabel, inputname, intputdata, "");
-                // // var input = this.vforminputmaker("text", "heloo", "value", "required");
-                // //console.log(input);
+            } else {              
                 if (inputmedadata.input == "hidden")
                     continue;
                 var input = this.inputBuilder.create(inputmedadata.input, {
@@ -187,10 +172,7 @@ export class BootstrapFormBuilder extends FormBuilder {
                 this.formElements.Register(input);
                 var x = this.columnBuilder.allocate(output);
                 formfields += x;
-                // console.log(x);
-                //this.columnBuilder.counter--;
-
-                // console.log(columMaker.counter);
+                // console.log(x);              
             }
         }
 
@@ -213,8 +195,6 @@ export class BootstrapFormBuilder extends FormBuilder {
 
         });
         var buttons = cancelButton.elem[0].outerHTML + saveButton.elem[0].outerHTML;
-        // var btnsave = this.vertical.button("submit", fid, "btn-primary waves-effect", "Save", 'save'); //forminputmaker("button", "save", "Save", "btn-primary");
-        // var btnCancel = this.vertical.button("button", fid, "", "Cancel", 'cancel');
         var btns = this.inputWrapper.buttonWrapper(true, buttons);
         var actionUrl = "/api/v1/crud/" + this.config.model + "/save";
         var formElements = formfields + btns;
@@ -264,9 +244,7 @@ export class BootstrapFormBuilder extends FormBuilder {
             var intputdata = inputmedadata.data ? inputmedadata.data : "";//data for select or rbl
 
             if (primaryKey == label) {
-                //console.log('primary')
-                //type, label, name, value, validation, className, selectedVal,isprimary
-                // formfields += this.vforminputmaker("hidden", label, inputname, 0, "", "", "", 1);
+            
                 var hiddenInput = this.inputBuilder.create("hidden", {
                     placeholder: '',
                     name: inputname,
@@ -277,11 +255,7 @@ export class BootstrapFormBuilder extends FormBuilder {
                 formfields += hiddenInput.elem[0].outerHTML;
                 continue;
             }
-
-            //     var label=ffields[i].toLowerCase();
-            //     var inputname = fid + "-" + label;
-            //if (!$.isEmptyObject(inputmedadata.rules))
-            //    validationrules[inputname] = inputmedadata.rules;
+        
             if (this.config.makeColumn == 1) {
                 if (inputmedadata.input == "hidden")
                     continue;
@@ -298,18 +272,9 @@ export class BootstrapFormBuilder extends FormBuilder {
                 });
                 var content = this.inputWrapper.inputWrapperHorizontal(inputlbl.elem[0].outerHTML, input.elem[0].outerHTML);
                 var output = this.inputWrapper.inputWrapper(false, content);
-                this.formElements.Register(input);
-                //var input = this.vforminputmaker(inputmedadata.input, extendedlabel, inputname, intputdata, "");
-                // var input = this.vforminputmaker("text", "heloo", "value", "required");
-                //console.log(input)
-                // forms.container.append(input);
+                this.formElements.Register(input);             
                 formfields += output;
-            } else {
-                // var input = this.inputBuilder.create(type, options);
-                // this.formElements.Register(input);
-                // var input = this.vforminputmaker(inputmedadata.input, extendedlabel, inputname, intputdata, "");
-                // // var input = this.vforminputmaker("text", "heloo", "value", "required");
-                // //console.log(input);
+            } else {               
                 if (inputmedadata.input == "hidden")
                     continue;
                 var input = this.inputBuilder.create(inputmedadata.input, {
@@ -330,10 +295,7 @@ export class BootstrapFormBuilder extends FormBuilder {
                 this.formElements.Register(input);
                 var x = this.columnBuilder.allocate(output);
                 formfields += x;
-                // console.log(x);
-                //this.columnBuilder.counter--;
-
-                // console.log(columMaker.counter);
+              
             }
         }
 

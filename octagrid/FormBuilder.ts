@@ -64,41 +64,8 @@ export class FormBuilder implements IFormBuilder {
         });
 
     }
-
-
-    // columnBuilder() {
-
-    //     var counter = this.config.makeColumn;
-    //     var className = "col-md-" + 12 / this.config.makeColumn;
-    //     var setRoom = function (input) {
-    //         var html = "";
-    //         if (counter == this.config.makeColumn) {
-    //             html += "<div class='row'>";
-    //         }
-    //         html += "<div class=" + className + ">";
-    //         html += input;
-    //         html += "</div>";
-    //         counter--;
-    //         if (counter == 0) {
-    //             html += "</div>";
-    //             counter = this.config.makeColumn;
-
-    //         }
-    //         return html;
-    //     };
-    //     var isAlterFields = function (datafieldCount) {
-
-    //         // return !datafieldCount %this.config.makeColumn == 0;
-    //     }
-    //     return {
-    //         isAlter: isAlterFields,
-    //         counter: counter,
-    //         allocate: setRoom
-    //     }
-    // }
     vertical() {
-        throw new Error('Method not implemented.');
-       
+        throw new Error('Method not implemented.');       
     }
     horizontal() {
         throw new Error('Method not implemented.');
@@ -222,9 +189,6 @@ export class FormBuilder implements IFormBuilder {
     setGrid(grid){
         this.config.grid=grid;
     }
-
-
-
 
 }
 
